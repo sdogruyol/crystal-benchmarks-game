@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
-def mem(pid); `ps p #{pid} -o rss`.split.last.to_i; end
+require "json"
+
+def mem(pid)
+	`ps p #{pid} -o rss`.split.last.to_i; 
+end
+
 t = Time.now
+puts *ARGV.to_a
 pid = Process.spawn(*ARGV.to_a)
 mm = 0
 
@@ -14,5 +20,10 @@ Thread.new do
 end
 
 Process.waitall
-STDERR.puts "== %.2fs, %.1fMb ==" % [Time.now - t, mm / 1024.0]
+time = Time.now - t
+memory =  mm / 1024.0
+
+json = {time: time, memory: memory}.to_json
+
+STDERR.puts "== %.2fs, %.1fMb ==" % [time, memory]
 
