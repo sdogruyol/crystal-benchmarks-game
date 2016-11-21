@@ -2,4 +2,4 @@ if [ ! -f 1.txt ]; then
 	sh generate.sh
 fi
 
-crystal build knucleotide.cr --release -o bin_cr
+ccrystal build knucleotide.cr --release -o bin_cr

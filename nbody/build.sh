@@ -1,1 +1,1 @@
-crystal build nbody.cr --release -o bin_cr
+ccrystal build nbody.cr --release -o bin_cr

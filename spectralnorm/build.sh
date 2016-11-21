@@ -1,1 +1,1 @@
-crystal build spectralnorm.cr --release -o bin_cr
+ccrystal build spectralnorm.cr --release -o bin_cr

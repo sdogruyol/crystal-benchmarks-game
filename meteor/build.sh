@@ -1,1 +1,1 @@
-crystal build meteor.cr --release -o bin_cr
+ccrystal build meteor.cr --release -o bin_cr

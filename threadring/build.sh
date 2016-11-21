@@ -1,1 +1,1 @@
-crystal build threadring.cr --release -o bin_cr
+ccrystal build threadring.cr --release -o bin_cr
