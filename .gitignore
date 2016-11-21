@@ -6,3 +6,4 @@
 *.class
 bin_*
 *.beam
+results/

@@ -6,7 +6,6 @@ def mem(pid)
 end
 
 t = Time.now
-puts *ARGV.to_a
 pid = Process.spawn(*ARGV.to_a)
 mm = 0
 
@@ -25,5 +24,7 @@ memory =  mm / 1024.0
 
 json = {time: time, memory: memory}.to_json
 
-STDERR.puts "== %.2fs, %.1fMb ==" % [time, memory]
+result_path = File.join "../results", "results.json"
+File.open(result_path, "a") {|f| f.puts json}
 
+STDERR.puts "== %.2fs, %.1fMb ==" % [time, memory]

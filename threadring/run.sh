@@ -1,3 +1,3 @@
 readonly NUM=5000000
-echo Crystal
+echo Crystal threadring
 ../xtime.rb ./bin_cr $NUM
