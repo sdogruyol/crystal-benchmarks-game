@@ -9,6 +9,15 @@
               </table>
             </div>
         </div>
+        <div class="row">
+            <form action="/benchmarks">
+                 <select name="benchmark" onchange="this.form.submit()">
+                    <% BENCHMARKS.each do |benchmark| %>
+                      <option <%= "selected" if benchmark_name == benchmark %> value="<%= benchmark %>"><%= benchmark.upcase %></option>
+                    <% end %>
+                </select>
+            </form>
+        </div>
         <div class="panel">
             <div class="panel-body">
                 <h1> Execution Time </h1>
@@ -24,13 +33,6 @@
         var timeChart = document.getElementById("timeChart");
         var timeScatterChart = new Chart(timeChart, {
             type: 'bar',
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            },
             data: {
                 labels: JSON.parse('<%= dates.to_json %>'),
                 datasets: [
@@ -44,17 +46,19 @@
                     }
                 ]
             },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
         });
         var memoryChart = document.getElementById("memoryChart");
         var memoryScatterChart = new Chart(memoryChart, {
             type: 'bar',
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            },
             data: {
                 labels: JSON.parse('<%= dates.to_json %>'),
                 datasets: [
@@ -67,7 +71,16 @@
                         data: JSON.parse('<%= memory_results["#{benchmark_name}"].to_json %>')
                     }
                 ]
-            },
+            },      
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
         });
     </script>
 
