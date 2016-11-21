@@ -16,6 +16,10 @@ get "/" do |env|
   render "views/index.ecr", "views/layout.ecr"
 end
 
+get "/hardware" do |env|
+  render "views/hardware.ecr", "views/layout.ecr"
+end
+
 get "/benchmarks" do |env|
   benchmark_name = env.params.query["benchmark"]?
   result_files = Dir.glob(Dir.current + "/results/results_**.json")
