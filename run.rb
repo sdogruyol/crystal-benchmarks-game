@@ -7,7 +7,7 @@ benchmarks = %w(binarytrees fannkuchredux fasta knucleotide mandelbrot meteor
 current_dir = Dir.pwd
 tmp_results_path = File.join(current_dir, "results", "results.json")
 benchmark_date = Time.now.strftime("%d.%m.%y")
-results_path = File.join current_dir, "results", "#{benchmark_date}.json"
+results_path = File.join current_dir, "results", "results_#{benchmark_date}.json"
 
 Dir.mkdir("results") unless Dir.exists?(File.join(current_dir,"results"))
 FileUtils.rm results_path if File.exists? results_path
