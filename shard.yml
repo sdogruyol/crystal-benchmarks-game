@@ -1,0 +1,7 @@
+name: benchmarks-game
+version: 0.1.0
+
+dependencies:
+  kemal:
+    github: sdogruyol/kemal
+    version: 0.16.1

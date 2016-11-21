@@ -7,3 +7,8 @@
 bin_*
 *.beam
 results/
+/libs/
+/.crystal/
+/.shards/
+*.log
+/shard.lock
